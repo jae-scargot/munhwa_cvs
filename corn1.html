@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>문화편의점-콘.스.프</title>
+        <link rel="icon" href="https://www.emojiall.com/images/240/apple/ios-15.4/1f3ea.png">
+        
+        <style>
+            * {
+            box-sizing: border-box;
+            word-break: keep-all;
+            }
+
+            body{font-family:'Nanum Gothic', 'Roboto'; font-size:16px;}
+            
+            .header {
+                padding: 35px 20px 23px 20px;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                background: white;
+                text-align: center;
+                color: #128678;
+                font-size: 2rem;
+                border: solid 1px black;
+                /*background-color: #EED582;*/
+            }
+
+            .header:hover{
+                transition: 0.3s ease-out;
+                opacity: 0.6;
+            }
+
+            .banner{
+                background-color: #128678;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                color: #EED582;
+                font-size: 25px;
+                font-family: "GMarket Sans";
+            }
+
+            #popupBtn {
+                width: 150px;
+                height: 50px;
+                padding: 10px;
+                margin-bottom: 40px;
+                color: #000;
+                background-color: #FFF;
+                border-width: thin;
+                border-style: solid 0.5px #000;
+                border-radius: 20px;
+            }
+
+            #popupBtn:hover {
+                color:#FFF;
+                background-color: #000;
+                transition: 0.3s ease-out;
+            }
+
+            #closeBtn {
+                float:right;
+                font-weight: bold;
+                color: #000;
+                font-size:25px;
+                cursor: pointer;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #FFF;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #EED582;
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                height: 60px;
+                border: solid 1px black;
+                z-index: 500;
+                font-family: "GMarket Sans";
+
+            }
+
+            .navbar a {
+                color: black;
+                padding: 14px 20px;
+                text-decoration: none;
+                text-align: center;
+                justify-content: center;
+                flex: 25%;
+            }
+
+            .navbar a:hover {
+                background-color: #128678;
+                color: #FFF;
+                justify-content: center;
+                align-items: center;
+                height: 60px;
+                border: solid 1px black;
+                transition: 0.3s ease-out;
+            }
+
+            #loadMore {
+                width: 80px;
+                height: 35px;
+                padding: 10px;
+                margin-bottom: 40px;
+                color: #000;
+                background-color: #FFF;
+                border-width: thin;
+                border-style: solid 0.5px #000;
+                border-radius: 10px;
+            }
+
+            #loadMore:hover{
+                color:#FFF;
+                background-color: #000;
+                transition: 0.3s ease-out;
+            }
+
+            figcaption{
+                margin-top: 10px;
+                color: grey;
+                font-size: 15px;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                justify-items: center;
+            }
+
+            .newsletter-container {
+                margin: 20px 20vw 0px 20vw;
+                padding: 50px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+            }
+
+            .main-title{
+                flex-wrap: wrap;
+                justify-items: center;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                border: solid 1px black;
+            }
+            
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: column;
+                justify-items: center;
+                align-items: center;
+                text-align: left;
+            }
+
+            .item{
+                width: 100%;
+                margin: 3px;
+                text-align: center;
+                color: #000;
+                border: 1px solid black;
+                /*box-shadow: 2px 2px 2px #12867837;*/
+                display: flex;
+                flex:0 98%;
+                justify-content:start;
+                justify-items:center;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .item:hover{
+                background-color:rgba(211, 211, 211, 0.165);
+                transition: 0.5s ease;
+                opacity: 0.8;
+            }
+
+            .inner-item{
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                font-size: 20px;
+                /*max-height: 170px;*/
+            }
+
+            .inner-image{
+                display:flex;
+                overflow: hidden;
+                align-items: center;
+                justify-content: center;
+                justify-items: center;
+                height: 150px;
+            }
+
+            .inner-item:last-child{
+                padding: 5px;
+                padding-left: 50px;
+                text-align: left;
+            }
+
+            p{
+                font-size: 16px;
+                line-height: 2;
+                text-align: left;
+            }
+
+            .more-btn-box{
+                margin-top: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                flex-wrap: wrap;
+            }
+
+            .footer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content:space-around;   
+                padding: 10px;
+                text-align: center;
+                background: #FFF;
+                font-size: 1.5rem;
+                height: 300px;
+                background-color: #EED582;
+                border: solid 1px black;
+            }
+
+            .ft-item{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                margin: 15px;
+            }
+
+            .ft-item:hover{
+                transition: 0.3s ease-out;
+                opacity: 0.6;
+            }
+
+            .info{
+                padding: 0;
+                font-size: 16px;
+                line-height: 150%;
+                text-decoration: none;
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+            }
+
+            .ft-item2{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                margin: 15px;
+            }
+
+            .info-item{
+                text-decoration: none;
+                color: black;
+            }
+
+            .info-item:hover{
+                /*color: #128678;*/
+                color: #128678;
+                font-weight: bold;
+            }
+
+            #load {
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #EED582;
+                z-index: 1100;
+                text-align: center;
+            }
+
+            #load > img {
+                display: grid;
+                width: 200px;
+                align-items: center;
+                top: 50%;
+                left: 50%;
+                z-index: 100;
+            }
+
+            @media only screen and (max-width:768px){
+                .newsletter-container{margin: 0px;}
+                .item{flex-direction: column;}
+                .inner-item:last-child{
+                    padding-left: 0px;
+                    text-align: center;
+                }                
+                .footer{height: 460px;}
+                .info{
+                    height: 300px;
+                    margin:0;
+                    padding: 0;
+                }
+            }
+
+            @media only screen and (min-width:768px) and (max-width:1200px){
+                .newsletter-container{margin: 0px;}
+                .item{flex-direction: column;}
+                .inner-item:last-child{
+                    padding-left: 0px;
+                    text-align: center;
+                }
+                .footer{height: 380px;}
+                .info{
+                    height: 300px;
+                    margin:0;
+                    padding: 0;
+                }
+            }
+
+            @media only screen and (min-width:1200px){
+            }
+        </style>
+
+    </head>
+
+
+    <body>
+
+        <div class="header">
+            <div class="main-logo">
+                <a href="index.html"><img src="images/logo.png" width="300px"></img></a>
+            </div>
+        </div>
+
+        <div class="banner">
+            [🌽콘.스.프] 콘텐츠 뉴스를 프리뷰하다!
+        </div>
+
+        <div class="navbar" id="navbar">
+            <a href="3min_data.html" target='_blank'>🍙 3분 데이터</a>
+            <a href="winery.html" target='_blank'>🍷 와이너리</a>
+            <a href="newsletters.html">🌽 콘.스.프</a>
+            <a href="collaboration.html" target='_blank'>🤝 협력 사례</a>
+            <a href="https://munhwacvs.notion.site/09f3da9566b4478bb4a12ee615fa1bc7?pvs=4" target='_blank'>🫡 제휴 문의</a>
+        </div>
+
+        <div class="newsletter-container">
+            <div class="main-title">
+                <h3>[🌽콘.스.프] 2023 생성 AI 트렌드 요약.zip</h3>
+                <h4>#174 | 2023.12.05</h4>
+            </div>
+
+            <h1 style="margin-bottom: 30px;"></br>ChatGPT 출시 1주년... 생성 AI 어디까지 왔나?</h1>
+
+            <div class="container">
+                
+                <img src="https://cdn.maily.so/a9yieo4tdtschucd9viepruxggz0" width="100%">
+
+                <p>지난해 11월 30일, 오픈AI가 ChatGPT를 처음으로 세상에 공개하며 많은 이들에게 충격을 안겨주었어요. 출시 2달 만에 이용자 수 1억 명을 달성하며 전 세계적인 붐을 일으켰죠.</p>
+
+                <h3>🤔 생성 AI, 어디까지 왔을까?</h3>
+
+                <span style="border: solid 1px grey; padding: 0px 5px 0px 20px;"><p><strong>💡생성 AI란?</br></strong>인공지능의 한 종류로, 주어진 데이터나 지시사항에 기반하여 새로운 콘텐츠를 생성하거나 출력하는 데에 사용되는 기술이다. 기계학습을 통해 문장, 이미지, 음악 등을 생성할 수 있다.</p></span>
+                
+                <p>가장 큰 유명세를 탄 오픈AI의 ChatGPT 이외에도 구글의 Bard, MS의 Bing, 네이버의 하이퍼클로바X 등 글로벌 IT 기업들은 다양한 분야에서 생성 AI 기술을 강화해 왔어요.</p>
+
+                <p><strong>1️⃣ 검색 포털 속 생성 AI</br></strong>많은 사람들이 하루에도 여러 차례 접속하는 네이버, 구글 등의 검색 포털에 생성 AI가 들어서기 시작했어요. 구글, Bing, 네이버 포털에 접목된 생성 AI 모두 비슷한 수준의 응답을 하는데요.</p>
+                
+                <figure>
+                    <img src="https://cdn.maily.so/br8kwzeffun90e7uva3k44ctviap" width="100%">
+                    <figcaption>Bing 검색 화면</figcaption>
+                </figure>
+                    
+                <p>ChatGPT를 기반으로 하는 Bing은 특이하게 대화 스타일을 선택해 필요에 맞는 정보를 얻을 수 있어요.</p>
+
+                <figure>
+                    <img src="https://cdn.maily.so/pc0tqp5g1zt3z6j93ar50unepyf6" width="100%">
+                    <figcaption>네이버 검색 화면</figcaption>
+                </figure>
+
+                <p>네이버의 경우 제안 혹은 명령 어조로 검색했을 때 생성 AI가 기능을 합니다. ‘크리스마스’, ‘데이트’, ‘사람 적은’, ‘서울’, ‘카페’ 등 꽤나 복잡한 고려 사항을 복합적으로 해석해 질문 의도에 맞는 응답과 제안을 해주죠.</p>
+
+                <p><strong>2️⃣ 보고 듣고 읽고 쓰는 생성 AI</br></strong></p>
+
+                <figure>
+                    <img src="https://cdn.maily.so/bb1mvvgh989an9px73n7mpbkfllo" width="100%">
+                    <figcaption>(출처=구글 Bard)</figcaption>
+                </figure>
+
+                <p>구글 Bard의 경우에는 질문 시 이미지를 포함하지 않더라도 스스로 이미지를 포함해 더 눈에 띄는 응답을 제공합니다.</p>
+
+                <figure>
+                    <img src="https://cdn.maily.so/bt5gl2jblnm2cl4ixw497r7l08y9" width="100%">
+                    <figcaption>(출처=SKT 에이닷 공식 홈페이지)</figcaption>
+                </figure>
+
+                <p>SKT는 녹음된 통화 기록을 기반으로 내용을 요약하고, 일정 예약 혹은 연락처 저장 등을 제안하는 ‘에이닷’ 서비스를 공개했어요.</p>
+
+                <figure>
+                    <img src="https://cdn.maily.so/atp26j4hhllq7qfp1o7dvvqohdyo" width="100%">
+                    <figcaption>이미지 생성 AI ‘DALL-E’가 5초 만에 생성한 4개의 이미지</figcaption>
+                </figure>
+
+                <p>오픈AI의 이미지 생성 AI ‘DALL-E 3’는 ChatGPT와 Bing에 적용되어 누구나 무료로 이미지를 생성할 수 있습니다.</p>
+
+                <figure>
+                    <img src="https://cdn.maily.so/1onxozvmp2kqf6gvlpj54lnznh4l" width="100%">
+                    <figcaption>(출처=SNOW 어플 캡쳐)</figcaption>
+                </figure>
+
+                <p>모바일 사진 앱 SNOW는 얼굴 사진 10~20장을 AI로 분석해 프로필 사진을 만들어주는 유료 서비스를 제공해 한 때 MZ세대 사이에서 큰 인기를 끌기도 했죠.</p>
+
+                <p><strong>3️⃣ 내가 직접 만드는 생성 AI?!</br></strong></p>
+
+                <figure>
+                    <img src="https://cdn.maily.so/1wyekt725d5ibzukn93ejok128sy" width="100%">
+                    <figcaption>(출처=오픈AI 공식 홈페이지)</figcaption>
+                </figure>
+
+                <p>한편, 오픈AI는 ‘GPTs’를 공개하며 생성 AI 생태계를 더욱 확장했어요. GPTs는 누구나 쉽게 챗봇을 커스터마이징할 수 있는 도구입니다. 출시 3주 만에 사용자가 만들어 공유한 챗봇은 이미 수만 개에 달하죠.</br>일련의 이유로 출시가 연기되었지만, 앞으로 GPT 스토어(직접 만든 챗봇을 거래하는 장터)까지 공개된다면 생성 AI를 활용한 개인 수익화까지 가능해질 전망입니다.</p>
+
+                <h3>✅ 해결해야 할 문제들</h3>
+
+                <p>지난 1년 간 상상 가능한 거의 모든 분야에 생성 AI가 적용되며 다방면에서 괄목할만한 성과를 보여줬는데요. 장점과 활용도가 명확한 만큼 단점도 존재하기 마련이죠.</p>
+
+                <figure>
+                    <img src="https://cdn.maily.so/kihnu1t59tlvozcorm4fc40e8me2" width="100%">
+                    <figcaption>실제로 일어난 적 없는 "세종대왕 맥북 던짐 사건"에 대해 진실인 것처럼 설명하고 있는 ChatGPT</figcaption>
+                </figure>
+
+                <p>생성 AI 기술이 엄청나게 빠른 속도로 발전하면서 가짜뉴스, 환각 현상, 저작권 침해, 비윤리적 내용 등의 문제도 발생하고 있는 것이 현실입니다.</p>
+
+                <span style="border: solid 1px black; padding: 0px 5px 0px 20px;"><p><strong>💡 환각 현상이란?</br></strong>생성 AI는 모르는 정보에 대해 문맥상 가장 유사한 정보를 끌어와 답하는데, 이 때 틀린 답을 마치 정답인 것처럼 응답하는 현상을 뜻한다.</p></span>
+
+                <figure>
+                    <img src="https://cdn.maily.so/nqe7xshymfoinxaeovy670bf3nau" width="100%">
+                    <figcaption>미 국방부 청사인 펜타곤이 폭발했다는 가짜 사진이 온라인에 확산돼 S&P500지수가 한때 0.3% 하락하는 등 금융시장에도 일시 혼란이 일었다. (출처=CNN)</figcaption>
+                </figure>
+
+                <p>
+                    지난 콘.스.프 #136에서도 소개 드렸듯이, 고도화된 생성 AI를 활용한 가짜뉴스가 SNS를 통해 전 세계로 빠르게 확산되면서 사회적 파장이 일었던 사례도 적지 않습니다.<br>
+                    사실 생성 AI의 기반이 되는 거대언어모델이 어떤 정보를 어떻게 학습하고 결과를 도출해내는지에 대한 정보는 알려진 바가 거의 없어요. 편향성 관련 지적을 받는 이유도 이 때문이에요.<br>
+                    오혜연 카이스트 전산학부 교수는 한 인터뷰에서 "영어로 된 미국 중심 데이터로 학습한 인공지능 세계에서 전 세계의 다양성이 무너지고 미국 문화가 모든 것을 덮어버릴 수도 있다."고 이야기하기도 했죠.
+                </p>
+
+                <h3>👨‍⚖️ 이대로 괜찮을까... 법안이나 규제는?</h3>
+
+                <p>먼저 국내의 상황은 어떨까요? 아쉽게도 AI와 관련해 가결된 법안은 하나도 없습니다. AI 개념 규정 및 AI 산업 육성, 안전성 확보의 내용을 담은 AI 기본법이 지난 2월부터 9개월째 국회의 문턱을 넘지 못하고 있죠.</p>
+
+                <figure>
+                    <img src="https://cdn.maily.so/aieiz5qzzve5fi5gi5gy5yy2zytd" width="100%">
+                    <figcaption>(출처=각 사)</figcaption>
+                </figure>
+
+                <p>법적인 규제 마련은 잘 이뤄지지 못하고 있지만, 한국 대표 IT 기업인 네이버와 카카오는 AI 윤리 준칙을 자체 규정한 뒤 개발 및 설계 과정에 적용하는 등 생성 AI의 편향성, 윤리 문제를 최소화하고 리터러시를 갖추고자 노력 중입니다.</p>
+
+                <figure>
+                    <img src="https://cdn.maily.so/acu2arefm4mfobs22s7ua1lwxjbn" width="100%">
+                    <figcaption>(출처=BRUNSWICK)</figcaption>
+                </figure>
+
+                <p>
+                    한편, 지난 1일 G7(미국, 일본, 독일, 프랑스, 영국, 이탈리아, 캐나다)이 세계 최초로 생성 AI 특화 국제 규범 합의안을 마련했어요. 이른바 '히로시마 프로세스'는 AI 개발자, 서비스 제공자 그리고 이용자까지 포함한 세계 최초 공통 규범이죠.</br>
+                    빠르진 않지만 AI 관련 규제 및 법안에 대한 전 세계적인 논의가 점차 시작되고 있어요.</br>
+                    </br>
+                    더욱 빠른 속도로 발전할 생성 AI 기술이 기대되는 한편, 빠른 기술 발전이 낳을 여러 영향에 대한 각국 정부의 알맞은 대응도 필요해 보입니다.
+                </p>
+
+                <p></br></p>
+
+                <span style="border: solid 1px grey; padding: 0px 20px 0px 20px;"><p><strong>오늘의 기획 상품 | 세 줄 요약! 😉</br></strong>✔️ 지난 1년 간 상상 가능한 거의 모든 분야에 적용되며 괄목할만한 성과를 보여준 생성 AI<br>
+                    ✔️ 가짜뉴스, 환각 현상, 저작권 침해, 비윤리적 내용 등의 문제도 빈번하게 발생<br>                    
+                    ✔️ 자체 윤리 준칙을 적용한 카카오와 네이버를 비롯해 G7 등 세계 각국에서도 생성 AI 관련 규제와 법안 마련을 시작하는 중</p></span>
+
+            </div>
+
+
+        </div>
+
+        <div class="more-btn-box">
+            <a href="https://maily.so/munhwa.cvs/embed?src=web" target="_blank"><button type="button" id="popupBtn" style="font-size: 16px;">💛 구독하기 💛</button></a>
+        </div>
+
+        <div class="footer">
+            <div class="ft-item">
+                <a href="index.html"><img src="images/logo.png" width="400px"></img></a>
+            </div>
+            <div class="ft-item2">
+                <div class="info" style="line-height: 1.5;">
+                    <a href="https://maily.so/munhwa.cvs" target="_blank" class="info-item">메일리</a>
+                    <a href="https://www.instagram.com/munhwa.cvs/" target="_blank" class="info-item">인스타그램</a>
+                    </br>
+                    <a href="https://www.openads.co.kr/insighter/writerDetail?authorId=476" target="_blank" class="info-item">오픈애즈</a>
+                    <a href="https://letter.wepick.kr/profile/119/home/" target="_blank" class="info-item">위픽레터</a>
+                    </br>
+                    <a href="https://maily.so/app/service_policy" target="_blank" class="info-item">이용약관</a>
+                    <a href="https://maily.so/app/privacy_agreement" target="_blank" class="info-item">개인정보처리방침</a>
+
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="load">
+            <img src="/images/loading.png" alt="loading">
+        </div>
+        
+        <script>
+        const loading_page = document.getElementById("load");
+        window.onload = function(){
+            loading_page.style.display = 'none';
+        }
+        </script>
+
+        <script>
+            function newPage() {
+            window.open("newsletters.html");
+            }
+        </script>
+
+        <script>
+            window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollPosition = window.scrollY;
+        
+            if (scrollPosition > 200) {
+                navbar.style.position = 'fixed';
+                navbar.style.top = '0';
+            } else {
+                navbar.style.position = 'relative';
+            }
+            });
+        </script>
+
+    </body>
+</html>

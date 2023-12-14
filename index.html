@@ -1,78 +1,704 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<!--have webpage title as 'MIDTERM'-->
-<title>MIDTERM</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="stylesheet" href="mystyle.css">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>문화편의점 munwha.cvs</title>
+        <link rel="icon" href="https://www.emojiall.com/images/240/apple/ios-15.4/1f3ea.png">
+        
+        <style>
+            * {
+            box-sizing: border-box;
+            word-break: keep-all;
+            }
 
-</head>
-<body>
-<!-- Header -->
-<div class="header">
-  <h1>My Website</h1>
-</div>
+            body{font-family:'Nanum Gothic', 'Roboto'; font-size:16px;}
+            
+            .header {
+                padding: 35px 20px 23px 20px;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                background: white;
+                text-align: center;
+                color: #128678;
+                font-size: 2rem;
+                border: solid 1px black;
+                /*background-color: #EED582;*/
+            }
 
-<!-- Navigation Bar -->
-<div class="navbar">
-  <a href="1.html">Link 1</a>
-  <a href="2.html">Link 2</a>
-  <a href="3.html">Link 3</a>
-  <a href="4.html">Link 4</a>
-</div>
+            .header:hover{
+                transition: 0.3s ease-out;
+                opacity: 0.6;
+            }
 
-<!-- The flexible content -->
-<div class="row">
-  <div class="side">
-    <h2>Heading 2</h2>
-    <h5>Title description</h5>
-    <img src="https://i.natgeofe.com/k/88de42b8-764c-40d2-89ee-e72d55dc95b8/emperor-penguin-chicks.jpg" style="width:100%" title="image1">
-    <p>Some text <span>about me in culpa</span> qui officia deserunt mollit anim..</p>
-    <h3>More Text</h3>
-    <p>Lorem ipsum dolor sit ame.</p>
-    <img src="data:image/jpeg;base64,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" style="width:100%" title="image2">
-  </div>
-  <div class="main">
-    <h2>Main HEADING</h2>
-    <h5>Title description, Dec 7, 2022</h5>
-    <img src="https://live.staticflickr.com/65535/51870943977_df726a5a2e_b.jpg" style="width:100%" title="image3">
-    <p>Sunt in culpa <span> qui officia deserunt mollit anim id est</span> laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    <br>
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Sep 2, 2022</h5>
-    <img src="https://global.hurtigruten.com/globalassets/photos/inspiration/brafton-articles/antarctica/img_6074_anke-timmerberg.jpg?width=1600&height=630&transform=DownFill" style="width:100%" title="image4">
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-  </div>
-</div>
+            .banner{
+                background-color: #9A41C1;
+                height: 85px;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                color: #EED582;
+                font-size: 30px;
+                font-family: "GMarket Sans";
+            }
 
-<!-- Footer -->
-<div class="footer">
-  <h2>Footer</h2>
-</div>
-<!--<script src="myscripts.js"></script>-->
-<script>
- $(document).ready(function() {
-    function checkWidth() {
-        var windowSize = $(window).width();
+            .sub-header {
+                display: flex;
+                flex-wrap: wrap;
+                height: 450px;
+                justify-content: space-around;   
+                padding: 20px;
+                padding-top: 30px;
+                align-items: center;
+                text-align: center;
+                background: white;
+                color: #128678;
+                font-size: 2rem;
+            }
 
-        if (windowSize < 700) {
-            // Hide the links if the window width is less than 700px
-            $('.navbar').addClass('hidden');
-        } else {
-            // Show the links if the window width is greater than or equal to 700px
-            $('.navbar').removeClass('hidden');
+            #samsik:hover{
+                transition: 0.4s ease;
+                opacity: 0.8;
+            }
+
+            #before{
+                transition: width 0.6s ease;
+            }
+
+            #description{
+                font-size: 20px;
+                color: black;
+                line-height: 0.8;
+            }
+
+            #btnWrap {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                width: 400px;
+                margin: 25px 0px 15px 0px;
+            }
+
+            #popupBtn {
+                width: 150px;
+                height: 50px;
+                padding: 10px;
+                margin-top: 15px;
+                color: #000;
+                background-color: #FFF;
+                border-width: thin;
+                border-style: solid 0.5px #000;
+                border-radius: 20px;
+            }
+
+            #popupBtn:hover {
+                color:#FFF;
+                background-color: #000;
+                transition: 0.3s ease-out;
+            }
+
+            #modalWrap {
+                position: fixed; /* Stay in place */
+                z-index: 1000; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+                display: none;            
+            }
+
+            #modalBody {
+                width: 400px;
+                height: 400px;
+                padding: 30px;
+                padding-top: 40px;
+                margin: 0 auto;
+                background-color: #fff;
+                border-radius: 10px;
+
+            }
+
+            #closeBtn {
+                float:right;
+                font-weight: bold;
+                color: #000;
+                font-size:25px;
+                cursor: pointer;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #FFF;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #EED582;
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                height: 60px;
+                border: solid 1px black;
+                z-index: 500;
+                font-family: "GMarket Sans";
+
+            }
+
+            .navbar a {
+                color: black;
+                padding: 14px 20px;
+                text-decoration: none;
+                text-align: center;
+                justify-content: center;
+                flex: 25%;
+            }
+
+            .navbar a:hover {
+                background-color: #128678;
+                color: #FFF;
+                justify-content: center;
+                align-items: center;
+                height: 60px;
+                border: solid 1px black;
+                transition: 0.3s ease-out;
+            }
+
+            .newsletter-container {
+                margin-left: 100px;
+                margin-right: 80px;
+                margin-top : 80px;
+                padding: 20px;
+            }
+            
+            .container{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: column;
+            }
+
+            .item{
+                margin: 3px;
+                text-align: center;
+                color: #000;
+                border: 1px solid black;
+                /*box-shadow: 2px 2px 2px #12867837;*/
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+            }
+
+            .item:hover{
+                background-color:rgba(211, 211, 211, 0.165);
+                transition: 0.5s ease;
+                opacity: 0.8;
+            }
+
+            .inner-item{
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                
+                /*max-height: 170px;*/
+            }
+
+            .inner-image{
+                display:flex;
+                overflow: hidden;
+                align-items: center;
+                justify-content: center;
+                justify-items: center;
+                max-width: 100%;
+                max-height: 100%;
+                /*max-width:250px;*/
+                
+            }
+
+            .inner-item:first-child{
+                background: #EED582;
+            }
+
+            .inner-item:last-child{
+                padding: 5px;
+            }
+
+            p{
+                font-size: 13px;
+            }
+
+            .more-btn-box{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                flex-wrap: wrap;
+            }
+
+            #moreBtn {
+                width: 150px;
+                height: 50px;
+                padding: 5px;
+                margin: 40px;
+                margin-top: 20px;
+                color: #000;
+                background-color: #FFF;
+                border-width: thin;
+                border-style: solid 0.5px #000;
+                border-radius: 20px;
+            }
+
+            #moreBtn:hover {
+                background-color: black;
+                color: white;
+                transition: 0.3s ease-out;
+            }
+
+            .footer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content:space-around;   
+                padding: 10px;
+                text-align: center;
+                background: #FFF;
+                font-size: 1.5rem;
+                height: 300px;
+                background-color: #EED582;
+                border: solid 1px black;
+            }
+
+            .ft-item{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                margin: 15px;
+            }
+
+            .ft-item:hover{
+                transition: 0.3s ease-out;
+                opacity: 0.6;
+            }
+
+            .info{
+                padding: 0;
+                font-size: 16px;
+                line-height: 150%;
+                text-decoration: none;
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+            }
+
+            .ft-item2{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                margin: 15px;
+            }
+
+            .info-item{
+                text-decoration: none;
+                color: black;
+            }
+
+            .info-item:hover{
+                /*color: #128678;*/
+                color: #128678;
+                font-weight: bold;
+            }
+
+            #mailyBtn {
+                width: 150px;
+                height: 50px;
+                padding: 5px;
+                color: #000;
+                background-color: #FFF;
+                border-width: thin;
+                border-style: solid 0.5px #000;
+                border-radius: 20px;
+            }
+
+            #mailyBtn:hover {
+                background-color: black;
+                color: white;
+                transition: 0.3s ease-out;
+            }
+
+            #subscribeBtn {
+                width: 150px;
+                height: 50px;
+                padding: 5px;
+                color: #000;
+                background-color: #FFF;
+                border-width: thin;
+                border-style: solid 0.5px #000;
+                border-radius: 20px;
+            }
+
+            #subscribeBtn:hover {
+                background-color: black;
+                color: white;
+                transition: 0.3s ease-out;
+            }
+
+            #load {
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #EED582;
+                z-index: 1100;
+                text-align: center;
+            }
+
+            #load > img {
+                display: grid;
+                width: 200px;
+                align-items: center;
+                top: 50%;
+                left: 50%;
+                z-index: 100;
+            }
+
+            @media only screen and (max-width:430px){
+                .sub-header {height: 700px;}
+                #modalBody {width:400px;}
+                .item{flex: 0 98%;}
+                .sub-item{flex: 0 100%;}
+                .footer{height: 460px;}
+                .info{
+                    height: 300px;
+                    margin:0;
+                    padding: 0;
+                }
+            }
+
+            @media only screen and (min-width:430px) and (max-width:1368px){
+                .sub-header {height: 700px;}
+                .item{flex: 0 48%;}
+                .sub-item{flex: 0 100%;}
+                .footer{height: 380px;}
+                .info{
+                    height: 300px;
+                    margin:0;
+                    padding: 0;
+                }
+            }
+
+            @media only screen and (min-width:1368px){
+                .item{flex: 0 24%;}
+            }
+        </style>
+
+    </head>
+
+
+    <body>
+        <div class="banner">
+            지금&nbsp;<span style="color: ivory">1,390명</span>이 문화편의점과 함께하고 있어요~!
+            <!--지금 <span id="numdata"></span>1,380명이 문화편의점과 함께하고 있어요~!-->
+        </div>
+
+        <div class="header">
+            <div class="main-logo">
+                <a href="index.html"><img src="images/logo.png" width="400px"></img></a>
+            </div>
+        </div>
+
+        <div class="sub-header">   
+            <div class="sub-item" id="description">
+                <p style="font-size: 16px; line-height: 1.3;">
+                    <span style="font-size: 20px; font-weight: bold;">🔔어서오세요, 🏪문화편의점입니다!</span></br>
+                    </br> 
+                    문화편의점에는 쉽고 빠르게 꺼내 먹을 수 있는 문화 콘텐츠 이야기가 가득해요.</br>
+                    다양함은 물론, 퀄리티까지 보장하는 배부른 문화 생활, 함께 시작해봐요-!</br>
+                    </br>
+                    💌 일주일에 한 번, 3분이면 충분해요!</br>
+                    최신 유행 문화 콘텐츠 트렌드를 간편하게 즐겨보세요.</br>
+                    </br>
+                    가장 신선한 이야기를 전달하기 위해</br>
+                    밤낮으로 고민하는 ✍🏼깐깐한 에디터들이 있답니다~
+
+                    <div>
+                        <button type="button" id="popupBtn" style="font-size: 16px;">💛 구독하기 💛</button>
+                    </div>
+                
+                    <div id="modalWrap">
+                        <div id="modalBody">
+                            <span id="closeBtn">&times;</span>
+                            <h4><strong><span style="color: #E8436A;">"매주 화요일"</span> 뉴스레터를 보내드려요</strong></h4>
+                            <iframe class="subscribe" src="https://maily.so/munhwa.cvs/embed?src=web&mode=light" frameborder="0" style="height: 70%;"></iframe>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+            <div class="sub-item" id="samsik" onmouseover="mouseover()" onmouseleave="mouseleave()">
+                <a href="https://www.instagram.com/munhwa.cvs/" target="_blank"><img src="images/samsik.png" left="450px" width="230" id="before"></img></a>
+            </div>
+        </div>
+
+        <div class="navbar" id="navbar">
+            <a href="3min_data.html">🍙 3분 데이터</a>
+            <a href="winery.html">🍷 와이너리</a>
+            <a href="newsletters.html">🌽 콘.스.프</a>
+            <a href="collaboration.html">🤝 협력 사례</a>
+            <a href="https://munhwacvs.notion.site/09f3da9566b4478bb4a12ee615fa1bc7?pvs=4" target='_blank'>🫡 제휴 문의</a>
+        </div>
+
+        <div class="newsletter-container">
+            <div class="container">
+                <a href="corn1.html" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/nqe7xshymfoinxaeovy670bf3nau" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] 2023 생성 AI 트렌드 요약.zip</h4>
+                        <p>2023.12.05</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/a6cfa03c" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/8yts945hggh4kl8g37yg286z64ku" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] 대형 게임사가 소규모 인디게임에 진심인 이유🕹️</h4>
+                        <p>2023.11.28</p>
+                    </div>
+                </a>    
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/45088055" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/e0bfogh70vhxnd5h0r2gjopgzbq6" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] 2024 트렌드라는 '디토(Ditto) 소비'</h4>
+                        <p>2023.11.21</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/ed676f9d" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/sh4zskeb245c9jai3sg8lkl42mx7" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] 르세라핌이 블리즈컨 무대에 오른 이유👀</h4>
+                        <p>2023.11.14</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/9608c018" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/efgwpgarqq329aidcwj7g3752td3" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>(이벤트)[🌽콘.스.프] 🚙현대차는 왜 10년 간 현대미술에 투자했을까?</h4>
+                        <p>2023.11.07</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/9eb40647" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/vlx0ssj9bpjcph3gyhtdxfyk3b8m" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] MZ가 스포츠를 즐기는 법⚽️</h4>
+                        <p>2023.10.31</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/65004cf4" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/plpjezktsaj6j2tbgl0n4zh72agi" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] 벌써 10년! 🎊문화가 있는 날 몰아보기</h4>
+                        <p>2023.10.24</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/daefde2e" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/rquvv9hx5qtws12xcn5vk73m6zp7" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] '올드함'을 벗어나고 싶은 카카오, 네이버🤔</h4>
+                        <p>2023.10.17</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/536df626" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/lewelz3sk7cs537vedpy9ne2itxy" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] 🧚🏼‍♂️버추얼 아이돌 인기의 진짜 이유</h4>
+                        <p>2023.10.10</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/68cb093b" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/z12z069nxr9dz8esu4nuuw76pphs" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🍙3분 데이터] 🍭탕후루 vs 🍯약과</h4>
+                        <p>2023.10.08</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/d68baaff" target="_blank" style="color: black; text-decoration: none;"><div class="item"></a>
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/uu9qxdnn2496c4ljhwj08ljoxdrc" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] 항저우 아시안 게임 속 문화 트렌드🔍</h4>
+                        <p>2023.10.03</p>
+                    </div>
+                </a>
+                </div>
+                <a href="https://maily.so/munhwa.cvs/posts/56402d0c" target="_blank" style="color: black; text-decoration: none;"><div class="item">
+                    <div class="inner-item">
+                        <img src="https://cdn.maily.so/202309/munhwa.cvs/1695660269221870.png" class="inner-image">
+                    </div>
+                    <div class="inner-item">
+                        <h4>[🌽콘.스.프] OTT도 반한 팝업존 마케팅 전략</h4>
+                        <p>2023.09.26</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="more-btn-box">
+            <a href="newsletters.html"><button type="button" id="moreBtn" onclick="newPage()" style="font-weight: 500; font-size: 16px;"></a>더 보기</button>
+        </div>
+
+        <div class="footer">
+            <div class="ft-item">
+                <a href="index.html"><img src="images/logo.png" width="400px"></img></a>
+            </div>
+            <div class="ft-item2">
+                <div class="info" style="line-height: 1.5;">
+                    <a href="https://maily.so/munhwa.cvs/embed?src=web" target="_blank" class="info-item">구독하기</a>
+                    <a href="https://maily.so/munhwa.cvs" target="_blank" class="info-item">메일리</a>
+                    </br>
+                    <a href="https://www.instagram.com/munhwa.cvs/" target="_blank" class="info-item">인스타그램</a>
+                    <a href="https://www.openads.co.kr/insighter/writerDetail?authorId=476" target="_blank" class="info-item">오픈애즈</a>
+                    <a href="https://letter.wepick.kr/profile/119/home/" target="_blank" class="info-item">위픽레터</a>
+                    </br>
+                    <a href="https://maily.so/app/service_policy" target="_blank" class="info-item">이용약관</a>
+                    <a href="https://maily.so/app/privacy_agreement" target="_blank" class="info-item">개인정보처리방침</a>
+
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="load">
+            <img src="/images/loading.png" alt="loading">
+        </div>
+        
+        <script>
+        const loading_page = document.getElementById("load");
+        window.onload = function(){
+            loading_page.style.display = 'none';
         }
-    }
+        </script>
 
-    // Execute on load
-    checkWidth();
+        <!--
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function extractNumber(text) {
+                const data = text.substring(0, 4);
+                const numdata = (parseFloat(data) * 1000).toLocaleString('en-US');
+                return numdata;
+            }
 
-    // Bind event listener
-    $(window).resize(checkWidth);
-});
-</script>
-</body>
+            async function scrapeWebsite(url) {
+                try {
+                const response = await axios.get(url);
+                const numdata = extractNumber(response.data);
+
+                document.getElementById('numdata').innerText = numdata;
+                console.log(numdata);
+                } catch (error) {
+                console.error('Error:', error);
+                }
+            }
+
+            // 페이지 로드 후 스크래핑 함수 실행
+            window.onload = function() {
+                scrapeWebsite('https://maily.so/munhwa.cvs');
+            };
+        </script>
+        -->
+
+        <script>
+            let samsik = document.getElementById('before');
+            function mouseover (){
+                samsik.setAttribute("width", "420");
+                samsik.setAttribute("src","images/samsik_insta.png");
+            }
+            
+            function mouseleave (){
+                samsik.setAttribute("width", "230");
+                samsik.setAttribute("src","images/samsik.png");
+            }        
+        </script>
+
+        <script>
+            const btn = document.getElementById('popupBtn');
+            const modal = document.getElementById('modalWrap');
+            const closeBtn = document.getElementById('closeBtn');
+
+            btn.onclick = function() {
+            modal.style.display = 'block';
+            }
+            closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            }
+
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            }
+        </script>
+
+        <script>
+            function newPage() {
+                window.location.href="newsletters.html";
+            }
+        </script>
+
+        <script>
+            window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollPosition = window.scrollY;
+        
+            if (scrollPosition > 700) {
+                navbar.style.position = 'fixed';
+                navbar.style.top = '0';
+            } else {
+                navbar.style.position = 'relative';
+            }
+            });
+        </script>
+
+    </body>
 </html>

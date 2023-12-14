@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>문화편의점-콘.스.프</title>
+        <link rel="icon" href="https://www.emojiall.com/images/240/apple/ios-15.4/1f3ea.png">
+        
+        <style>
+            * {
+            box-sizing: border-box;
+            word-break: keep-all;
+            }
+
+            body{font-family:'Nanum Gothic', 'Roboto'; font-size:16px;}
+            
+            .header {
+                padding: 35px 20px 23px 20px;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                background: white;
+                text-align: center;
+                color: #128678;
+                font-size: 2rem;
+                border: solid 1px black;
+                /*background-color: #EED582;*/
+            }
+
+            .header:hover{
+                transition: 0.3s ease-out;
+                opacity: 0.6;
+            }
+
+            .banner{
+                background-color: #128678;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                color: #EED582;
+                font-size: 25px;
+                font-family: "GMarket Sans";
+            }
+            
+            #popupBtn {
+                width: 150px;
+                height: 50px;
+                padding: 10px;
+                margin-bottom: 40px;
+                color: #000;
+                background-color: #FFF;
+                border-width: thin;
+                border-style: solid 0.5px #000;
+                border-radius: 20px;
+            }
+
+            #popupBtn:hover {
+                color:#FFF;
+                background-color: #000;
+                transition: 0.3s ease-out;
+            }
+
+            #closeBtn {
+                float:right;
+                font-weight: bold;
+                color: #000;
+                font-size:25px;
+                cursor: pointer;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #FFF;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #EED582;
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                height: 60px;
+                border: solid 1px black;
+                z-index: 500;
+                font-family: "GMarket Sans";
+
+            }
+
+            .navbar a {
+                color: black;
+                padding: 14px 20px;
+                text-decoration: none;
+                text-align: center;
+                justify-content: center;
+                flex: 25%;
+            }
+
+            .navbar a:hover {
+                background-color: #128678;
+                color: #FFF;
+                justify-content: center;
+                align-items: center;
+                height: 60px;
+                border: solid 1px black;
+                transition: 0.3s ease-out;
+            }
+
+            .list {
+                width: 100%;
+                list-style-type: none;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .container li {
+                list-style-type: none;
+                display: flex;
+                flex: 0 98%;
+            }
+
+            #loadMore {
+                width: 80px;
+                height: 35px;
+                padding: 10px;
+                margin-bottom: 40px;
+                color: #000;
+                background-color: #FFF;
+                border-width: thin;
+                border-style: solid 0.5px #000;
+                border-radius: 10px;
+            }
+
+            #loadMore:hover{
+                color:#FFF;
+                background-color: #000;
+                transition: 0.3s ease-out;
+            }
+
+            .contents{
+                width: 100%
+            }
+
+            .newsletter-container {
+                margin: 50px 10vw 20px 10vw;
+                padding: 20px;
+            }
+            
+            .container{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: column;
+            }
+
+            .item{
+                margin: 3px;
+                text-align: center;
+                color: #000;
+                border: 1px solid black;
+                /*box-shadow: 2px 2px 2px #12867837;*/
+                display: flex;
+                flex:0 98%;
+                justify-content:start;
+                justify-items:center;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .item:hover{
+                background-color:rgba(211, 211, 211, 0.165);
+                transition: 0.5s ease;
+                opacity: 0.8;
+            }
+
+            .inner-item{
+                justify-content: space-between;
+                justify-items: center;
+                align-items: center;
+                font-size: 20px;
+                /*max-height: 170px;*/
+            }
+
+            .inner-image{
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                justify-items: center;
+                height: 200px;
+            }
+
+            .inner-item:last-child{
+                padding: 5px;
+                padding-left: 50px;
+                text-align: left;
+            }
+
+            p{
+                font-size: 16px;
+            }
+
+            .more-btn-box{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                flex-wrap: wrap;
+            }
+
+            .footer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content:space-around;   
+                padding: 10px;
+                text-align: center;
+                background: #FFF;
+                font-size: 1.5rem;
+                height: 300px;
+                background-color: #EED582;
+                border: solid 1px black;
+            }
+
+            .ft-item{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                margin: 15px;
+            }
+
+            .ft-item:hover{
+                transition: 0.3s ease-out;
+                opacity: 0.6;
+            }
+
+            .info{
+                padding: 0;
+                font-size: 16px;
+                line-height: 150%;
+                text-decoration: none;
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+            }
+
+            .ft-item2{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                margin: 15px;
+            }
+
+            .info-item{
+                text-decoration: none;
+                color: black;
+            }
+
+            .info-item:hover{
+                /*color: #128678;*/
+                color: #128678;
+                font-weight: bold;
+            }
+
+            #load {
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #EED582;
+                z-index: 1100;
+                text-align: center;
+            }
+
+            #load > img {
+                display: grid;
+                width: 200px;
+                align-items: center;
+                top: 50%;
+                left: 50%;
+                z-index: 100;
+            }
+
+            @media only screen and (max-width:768px){
+                .item{flex-direction: column;}
+                .inner-item:last-child{
+                    padding-left: 0px;
+                    text-align: center;
+                }                
+                .footer{height: 460px;}
+                .info{
+                    height: 300px;
+                    margin:0;
+                    padding: 0;
+                }
+            }
+
+            @media only screen and (min-width:768px) and (max-width:1200px){
+                .item{flex-direction: column;}
+                .inner-item:last-child{
+                    padding-left: 0px;
+                    text-align: center;
+                }
+                .footer{height: 380px;}
+                .info{
+                    height: 300px;
+                    margin:0;
+                    padding: 0;
+                }
+            }
+
+            @media only screen and (min-width:1200px){
+            }
+        </style>
+
+    </head>
+
+
+    <body>
+
+        <div class="header">
+            <div class="main-logo">
+                <a href="index.html"><img src="images/logo.png" width="300px"></img></a>
+            </div>
+        </div>
+
+        <div class="banner">
+            [🌽콘.스.프] 콘텐츠 뉴스를 프리뷰하다!
+        </div>
+
+        <div class="navbar" id="navbar">
+            <a href="3min_data.html">🍙 3분 데이터</a>
+            <a href="winery.html">🍷 와이너리</a>
+            <a href="newsletters.html">🌽 콘.스.프</a>
+            <a href="collaboration.html">🤝 협력 사례</a>
+            <a href="https://munhwacvs.notion.site/09f3da9566b4478bb4a12ee615fa1bc7?pvs=4" target='_blank'>🫡 제휴 문의</a>
+        </div>
+
+
+
+        <div class="newsletter-container">
+            <ul class="container" id="list">
+                <li class="list">
+                    <a href="corn1.html" class="contents" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/nqe7xshymfoinxaeovy670bf3nau" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] 2023 생성 AI 트렌드 요약.zip</h4>
+                                <p>2023.12.05</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/a6cfa03c" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/8yts945hggh4kl8g37yg286z64ku" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] 대형 게임사가 소규모 인디게임에 진심인 이유🕹️</h4>
+                                <p>2023.11.28</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/45088055" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/e0bfogh70vhxnd5h0r2gjopgzbq6" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] 2024 트렌드라는 '디토(Ditto) 소비'</h4>
+                                <p>2023.11.21</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/ed676f9d" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/ch603pi2dc9w6heicslgmra9lrw6" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] 르세라핌이 블리즈컨 무대에 오른 이유👀</h4>
+                                <p>2023.11.14</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/9608c018" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/5q7cvcuhfb81rd30beg8y0kzv2wd" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>(이벤트)[🌽콘.스.프] 🚙현대차는 왜 10년 간 현대미술에 투자했을까?</h4>
+                                <p>2023.11.07</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/9eb40647" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/o1kz1u7mym0iojv402pvypat69bw" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] MZ가 스포츠를 즐기는 법⚽️</h4>
+                                <p>2023.10.31</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/65004cf4" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/gzh08xojy0yucb7q2n5a72pz42gs" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] 벌써 10년! 🎊문화가 있는 날 몰아보기</h4>
+                                <p>2023.10.24</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/daefde2e" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/jhbf4c73qld9owh450n7p3hr81a1" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] '올드함'을 벗어나고 싶은 카카오, 네이버🤔</h4>
+                                <p>2023.10.17</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/536df626" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/d69fy6ue7p1sxbt45mq6je1ea36z" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] 🧚🏼‍♂️버추얼 아이돌 인기의 진짜 이유</h4>
+                                <p>2023.10.10</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/68cb093b" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/z12z069nxr9dz8esu4nuuw76pphs" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🍙3분 데이터] 🍭탕후루 vs 🍯약과</h4>
+                                <p>2023.10.08</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/d68baaff" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/hs73kiml9026si9vhet3ximmdzdu" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] 항저우 아시안 게임 속 문화 트렌드🔍</h4>
+                                <p>2023.10.03</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://maily.so/munhwa.cvs/posts/56402d0c" class="contents" target="_blank" style="color: black; text-decoration: none;">
+                        <div class="item">
+                            <div class="inner-item">
+                                <img src="https://cdn.maily.so/202309/munhwa.cvs/1695662137163249.png" class="inner-image">
+                            </div>
+                            <div class="inner-item">
+                                <h4>[🌽콘.스.프] OTT도 반한 팝업존 마케팅 전략</h4>
+                                <p>2023.09.26</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
+
+            </ul>
+
+            <div class="more-btn-box">
+                <button type="button" id="loadMore" style="font-size: 14px;">더 보기</button></a>
+            </div>
+          </div>
+
+        <div class="more-btn-box">
+            <a href="https://maily.so/munhwa.cvs/embed?src=web" target="_blank"><button type="button" id="popupBtn" style="font-size: 16px;">💛 구독하기 💛</button></a>
+        </div>
+
+        <div class="footer">
+            <div class="ft-item">
+                <a href="index.html"><img src="images/logo.png" width="400px"></img></a>
+            </div>
+            <div class="ft-item2">
+                <div class="info" style="line-height: 1.5;">
+                    <a href="https://maily.so/munhwa.cvs" target="_blank" class="info-item">메일리</a>
+                    <a href="https://www.instagram.com/munhwa.cvs/" target="_blank" class="info-item">인스타그램</a>
+                    </br>
+                    <a href="https://www.openads.co.kr/insighter/writerDetail?authorId=476" target="_blank" class="info-item">오픈애즈</a>
+                    <a href="https://letter.wepick.kr/profile/119/home/" target="_blank" class="info-item">위픽레터</a>
+                    </br>
+                    <a href="https://maily.so/app/service_policy" target="_blank" class="info-item">이용약관</a>
+                    <a href="https://maily.so/app/privacy_agreement" target="_blank" class="info-item">개인정보처리방침</a>
+
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="load">
+            <img src="/images/loading.png" alt="loading">
+        </div>
+        
+        <script>
+        const loading_page = document.getElementById("load");
+        window.onload = function(){
+            loading_page.style.display = 'none';
+        }
+        </script>
+
+
+
+        <script>
+            const loadMoreButton = document.getElementById('loadMore');
+            const list = document.getElementById('list');
+            const initialItems = 5; // 초기 표시할 항목 개수
+            const itemsPerLoad = 5; // 더 보기를 클릭할 때마다 추가로 표시할 항목 개수
+            let count = initialItems;
+
+            // 초기에 처음 항목들만 보이도록 설정
+            Array.from(list.children).slice(initialItems).forEach(item => {
+            item.style.display = 'none';
+            });
+
+            loadMoreButton.addEventListener('click', () => {
+            const itemsToShow = Array.from(list.children).slice(count, count + itemsPerLoad);
+            itemsToShow.forEach(item => {
+                item.style.display = 'flex'; // Flexbox를 사용하므로 display를 'flex'로 설정
+            });
+            count += itemsPerLoad;
+
+            // 더 이상 보여줄 항목이 없을 때 '더 보기' 버튼 숨기기
+            if (count >= list.children.length) {
+                loadMoreButton.style.display = 'none';
+            }
+            });
+        </script>
+
+        <script>
+            function newPage() {
+            window.open("newsletters.html");
+            }
+        </script>
+
+        <script>
+            window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollPosition = window.scrollY;
+        
+            if (scrollPosition > 200) {
+                navbar.style.position = 'fixed';
+                navbar.style.top = '0';
+            } else {
+                navbar.style.position = 'relative';
+            }
+            });
+        </script>
+
+    </body>
+</html>
